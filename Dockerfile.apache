@@ -1,0 +1,6 @@
+FROM ubuntu
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -y && apt-get install -y apache2 && apt-get clean
+EXPOSE 80
+COPY index.html /var/www/html/index.html
+CMD ["/usr/sbin/apache2ctl","-DFOREGROUND"]
